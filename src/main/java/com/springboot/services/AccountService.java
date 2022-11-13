@@ -12,8 +12,6 @@ import java.util.Optional;
 public class AccountService {
     @Autowired
     private AccountRepository accountRepository;
-    @Autowired
-    PersonService personService;
 
     public Account saveAccount(Account account) {
 
@@ -35,9 +33,6 @@ public class AccountService {
     public Optional<Account> findById(Long id) {
         return accountRepository.findById(id);
     }
-    public void checkPerson(Person person){
-        /*if (person.equals(person)){
 
-        }*/
     }
-}
+

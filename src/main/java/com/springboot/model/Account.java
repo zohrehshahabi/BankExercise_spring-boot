@@ -26,6 +26,9 @@ public class Account {
     @Column(name = "acc_isopen")
     private boolean isOpen;
 
+    @Column(name = "acc_balance")
+    private Double balance;
+
    /* @ManyToMany(mappedBy = "accounts", cascade = CascadeType.ALL)
     private List<Person> persons = new ArrayList<>();*/
 
@@ -37,9 +40,11 @@ public class Account {
     public Account() {
     }
 
-    public Account(String accountNumber, boolean isOpen) {
+    public Account(AccountType accountType, String accountNumber, boolean isOpen, Double balance) {
+        this.accountType = accountType;
         this.accountNumber = accountNumber;
         this.isOpen = isOpen;
+        this.balance = balance;
     }
 
     public List<AccountPerson> getAccountPersonList() {
@@ -82,4 +87,11 @@ public class Account {
         isOpen = open;
     }
 
+    public Double getBalance() {
+        return balance;
+    }
+
+    public void setBalance(Double balance) {
+        this.balance = balance;
+    }
 }

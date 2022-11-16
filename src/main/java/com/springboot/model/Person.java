@@ -3,7 +3,6 @@ package com.springboot.model;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -34,7 +33,7 @@ public class Person {
     @OneToMany(mappedBy = "person",
             cascade = CascadeType.ALL,
             orphanRemoval = true)
-    List<AccountPerson> accountPersonList = new ArrayList<>();
+    List<AccountPersonHolder> accountPersonHolderList = new ArrayList<>();
 
     public Person(long id, String name, String code, String customerNumber) {
         this.id = id;
@@ -46,12 +45,12 @@ public class Person {
     public Person() {
     }
 
-    public List<AccountPerson> getAccountPersonList() {
-        return accountPersonList;
+    public List<AccountPersonHolder> getAccountPersonList() {
+        return accountPersonHolderList;
     }
 
-    public void setAccountPersonList(List<AccountPerson> accountPersonList) {
-        this.accountPersonList = accountPersonList;
+    public void setAccountPersonList(List<AccountPersonHolder> accountPersonHolderList) {
+        this.accountPersonHolderList = accountPersonHolderList;
     }
 
     public long getId() {

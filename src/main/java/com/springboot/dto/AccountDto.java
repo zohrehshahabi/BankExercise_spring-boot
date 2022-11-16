@@ -1,17 +1,16 @@
 package com.springboot.dto;
 
+import javax.validation.constraints.NotBlank;
 import java.io.Serializable;
 
 public class AccountDto implements Serializable {
-
+    @NotBlank(message = "Account number is mandatory")
     private String accountNumber;
-    private boolean isOpen;
-    private Double balance;
 
-    public AccountDto(String accountNumber, boolean isOpen, Double balance) {
-        this.accountNumber = accountNumber;
-        this.isOpen = isOpen;
-        this.balance = balance;
+    @NotBlank(message = "Sort code is mandatory")
+    private String sortCode;
+
+    public AccountDto() {
     }
 
     public String getAccountNumber() {
@@ -22,19 +21,11 @@ public class AccountDto implements Serializable {
         this.accountNumber = accountNumber;
     }
 
-    public boolean isOpen() {
-        return isOpen;
+    public String getSortCode() {
+        return sortCode;
     }
 
-    public void setOpen(boolean open) {
-        isOpen = open;
-    }
-
-    public Double getBalance() {
-        return balance;
-    }
-
-    public void setBalance(Double balance) {
-        this.balance = balance;
+    public void setSortCode(String sortCode) {
+        this.sortCode = sortCode;
     }
 }

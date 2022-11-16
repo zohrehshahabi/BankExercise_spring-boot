@@ -2,7 +2,6 @@ package com.springboot.model;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,6 +17,9 @@ public class Account {
     @Enumerated(EnumType.STRING)
     @NotNull
     private AccountType accountType;
+    @Column(name = "acc_sortCode")
+    private String sortCode;
+
 
     @NotNull
     @Column(name = "acc_no")
@@ -28,6 +30,8 @@ public class Account {
 
     @Column(name = "acc_balance")
     private Double balance;
+    @OneToMany
+    private transient List<Transaction> transactions;
 
    /* @ManyToMany(mappedBy = "accounts", cascade = CascadeType.ALL)
     private List<Person> persons = new ArrayList<>();*/
@@ -35,7 +39,7 @@ public class Account {
     @OneToMany(mappedBy = "account",
             cascade = CascadeType.ALL,
             orphanRemoval = true)
-    List<AccountPerson> accountPersonList = new ArrayList<>();
+    List<AccountPersonHolder> accountPersonHolderList = new ArrayList<>();
 
     public Account() {
     }
@@ -47,12 +51,40 @@ public class Account {
         this.balance = balance;
     }
 
-    public List<AccountPerson> getAccountPersonList() {
-        return accountPersonList;
+    public Account(long id, AccountType accountType, String accountNumber, boolean isOpen,
+                   Double balance, List<Transaction> transactions,
+                   List<AccountPersonHolder> accountPersonHolderList) {
+        this.id = id;
+        this.accountType = accountType;
+        this.accountNumber = accountNumber;
+        this.isOpen = isOpen;
+        this.balance = balance;
+        this.transactions = transactions;
+        this.accountPersonHolderList = accountPersonHolderList;
     }
 
-    public void setAccountPersonList(List<AccountPerson> accountPersonList) {
-        this.accountPersonList = accountPersonList;
+    public String getSortCode() {
+        return sortCode;
+    }
+
+    public void setSortCode(String sortCode) {
+        this.sortCode = sortCode;
+    }
+
+    public List<Transaction> getTransactions() {
+        return transactions;
+    }
+
+    public void setTransactions(List<Transaction> transactions) {
+        this.transactions = transactions;
+    }
+
+    public List<AccountPersonHolder> getAccountPersonHolderList() {
+        return accountPersonHolderList;
+    }
+
+    public void setAccountPersonHolderList(List<AccountPersonHolder> accountPersonHolderList) {
+        this.accountPersonHolderList = accountPersonHolderList;
     }
 
     public AccountType getAccountType() {

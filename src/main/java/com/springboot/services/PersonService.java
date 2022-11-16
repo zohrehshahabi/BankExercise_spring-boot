@@ -41,9 +41,13 @@ public class PersonService {
     public  Optional<Person> findById(Long id) {
         return personRepository.findById(id);
     }
-    public void findByCode(String code){
-         personRepository.findByCode(code);
+    public Person findByCode(String code){
+          return personRepository.findByCode(code);
     }
+    public Optional<Person> fineByNAME(String name){
+        return personRepository.findByName(name);
+    }
+
   //  public boolean checkPerson(Person person){
        // person.g
    // }

@@ -7,7 +7,7 @@ import java.time.LocalDateTime;
 @Table(name = "T_transaction")
 public class Transaction {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "transaction_seq")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private long id;
 
 

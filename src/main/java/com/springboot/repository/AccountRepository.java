@@ -10,6 +10,10 @@ import java.util.Optional;
 @Repository
 public interface AccountRepository extends CrudRepository<Account,Long> {
 
+    Optional<Account> findBySortCodeAndAccountNumber(String code, String accountNumber);
 
-   ///Optional<Accoun> findByAccountNumber(String accountNumber );
+
+
+
+    ///Optional<Accoun> findByAccountNumber(String accountNumber );
 }

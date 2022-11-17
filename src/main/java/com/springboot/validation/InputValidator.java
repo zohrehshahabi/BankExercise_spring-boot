@@ -2,6 +2,7 @@ package com.springboot.validation;
 
 import com.springboot.dto.AccountDto;
 import com.springboot.dto.CreateAccountDto;
+import com.springboot.dto.TransactionDto;
 import com.springboot.model.constants;
 
 public class InputValidator {
@@ -15,6 +16,21 @@ public class InputValidator {
     }
     public static boolean isCreateAccountCriteriaValid(CreateAccountDto createAccountDto) {
         return ( !createAccountDto.getOwnerName().isBlank());
+    }
+
+    public static boolean isSearchTransactionValid(TransactionDto transactionDto) {
+        // TODO Add checks for large amounts; consider past history of account holder and location of transfers
+
+        if (!isSearchCriteriaValid(transactionDto.getSourceAccount()))
+            return false;
+
+        if (!isSearchCriteriaValid(transactionDto.getTargetAccount()))
+            return false;
+
+        if (transactionDto.getSourceAccount().equals(transactionDto.getTargetAccount()))
+            return false;
+
+        return true;
     }
 
 }

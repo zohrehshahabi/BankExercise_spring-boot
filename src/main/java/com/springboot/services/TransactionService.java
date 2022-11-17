@@ -59,7 +59,11 @@ public class TransactionService {
     }
 
 
-    private boolean isAmountAvailable(double amount, double accountBalance) {
+    public boolean isAmountAvailable(double amount, double accountBalance) {
         return (accountBalance - amount) > 0;
+    }
+
+    public Iterable<Transaction> getAllTransaction() {
+        return transactionRepository.findAll();
     }
 }

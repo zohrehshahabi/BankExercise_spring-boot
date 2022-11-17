@@ -30,8 +30,9 @@ public class Account {
 
     @Column(name = "acc_balance")
     private Double balance;
-    @OneToMany
-    private transient List<Transaction> transactions;
+
+    @OneToMany(cascade = CascadeType.ALL)
+    private transient List<Transaction> transactions=new ArrayList<>();
 
    /* @ManyToMany(mappedBy = "accounts", cascade = CascadeType.ALL)
     private List<Person> persons = new ArrayList<>();*/

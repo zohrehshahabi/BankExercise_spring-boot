@@ -42,7 +42,7 @@ public class TransactionService {
                 transaction.setCompletionDate(LocalDateTime.now());
                 updateAccountBalance(sourceAccount.get(), transactionDto.getAmount(), Action.WITHDRAW);
                 transactionRepository.save(transaction);
-                
+
                 return true;
             }
         }

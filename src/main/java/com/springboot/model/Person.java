@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-@Entity
+@Entity(name =  "person")
 @Table(name = "T_Person")
 public class Person {
     @NotNull

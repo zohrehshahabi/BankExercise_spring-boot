@@ -17,7 +17,7 @@ import java.util.List;
 public class PersonController {
     @Autowired
     private PersonService personService;
-    private PersonMapper personMapper;
+  /*  private PersonMapper personMapper;
     @PostMapping
         public ResponseEntity<Void> addPerson (@RequestBody PersonRequestDto personRequestDto) {
           Person person = personMapper.toPerson(personRequestDto);
@@ -27,14 +27,14 @@ public class PersonController {
        @GetMapping
        public ResponseEntity<List<PersonDto>> getAllPersons() {
          return ResponseEntity.ok (personMapper.toPersonDtos((List<Person>) personService.getAllPerson()));
-      }
+      }*/
 
- /*   @GetMapping
+   @GetMapping
     public Iterable<Person> getAllPerson() {
         return personService.getAllPerson();
-    }*/
+    }
 
-   /* @PostMapping
+    @PostMapping
     Person addPerson(@RequestBody Person person) {
         try {
             return personService.savePerson(person);
@@ -42,15 +42,15 @@ public class PersonController {
             e.printStackTrace();
         }
         return null;
-    }*/
-    @PutMapping
+    }
+    /*@PutMapping
     public ResponseEntity<Void> updatePerson (@RequestBody PersonRequestDto personRequestDto) {
         Person person = personMapper.toPerson(personRequestDto);
         personService.savePerson(person);
         return ResponseEntity.ok().build();
-    }
+    }*/
 
-    /*@PutMapping
+    @PutMapping
     void updatePerson(@RequestBody Person person) {
         try {
             personService.savePerson(
@@ -59,7 +59,7 @@ public class PersonController {
         } catch (Exception e) {
             e.printStackTrace();
         }
-    }*/
+    }
 
     @DeleteMapping("/{id}")
     void deletePerson(@PathVariable Long id) {

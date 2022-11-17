@@ -5,7 +5,7 @@ import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.List;
 
-@Entity
+@Entity(name = "account")
 @Table(name = "T_Account")
 public class Account {
     @NotNull
@@ -15,8 +15,8 @@ public class Account {
     private long id;
 
     @Enumerated(EnumType.STRING)
-    @NotNull
     private AccountType accountType;
+
     @Column(name = "acc_sortCode")
     private String sortCode;
 

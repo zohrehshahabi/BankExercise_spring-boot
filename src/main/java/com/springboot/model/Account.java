@@ -45,23 +45,33 @@ public class Account {
     public Account() {
     }
 
-    public Account(AccountType accountType, String accountNumber, boolean isOpen, Double balance) {
+    public Account(AccountType accountType, String sortCode, String accountNumber,
+                   boolean isOpen, Double balance, List<Transaction> transactions) {
+        this.accountType = accountType;
+        this.sortCode = sortCode;
+        this.accountNumber = accountNumber;
+        this.isOpen = isOpen;
+        this.balance = balance;
+        this.transactions = transactions;
+    }
+
+    /*public Account(AccountType accountType, String accountNumber, boolean isOpen, Double balance) {
         this.accountType = accountType;
         this.accountNumber = accountNumber;
         this.isOpen = isOpen;
         this.balance = balance;
-    }
+    }*/
 
     public Account(long id, AccountType accountType, String accountNumber, boolean isOpen,
-                   Double balance, List<Transaction> transactions,
-                   List<AccountPersonHolder> accountPersonHolderList) {
+                   Double balance, List<Transaction> transactions
+                   ) {
         this.id = id;
         this.accountType = accountType;
         this.accountNumber = accountNumber;
         this.isOpen = isOpen;
         this.balance = balance;
         this.transactions = transactions;
-        this.accountPersonHolderList = accountPersonHolderList;
+
     }
 
     public String getSortCode() {

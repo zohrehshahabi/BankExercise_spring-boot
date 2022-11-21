@@ -17,8 +17,7 @@ public class AccountPersonHolder {
     public AccountPersonHolder() {
     }
 
-    public AccountPersonHolder(AccountPersonId accountPersonId, Account account, Person person) {
-        this.accountPersonId = accountPersonId;
+    public AccountPersonHolder( Account account, Person person) {
         this.account = account;
         this.person = person;
     }

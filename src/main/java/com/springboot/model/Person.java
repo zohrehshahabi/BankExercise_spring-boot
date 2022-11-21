@@ -13,6 +13,7 @@ public class Person {
     @NotNull
     @Id
     @Column(name = "prs_id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
     @Column(name = "prs_name")
@@ -35,8 +36,7 @@ public class Person {
             orphanRemoval = true)
     List<AccountPersonHolder> accountPersonHolderList = new ArrayList<>();
 
-    public Person(long id, String name, String code, String customerNumber) {
-        this.id = id;
+    public Person( String name, String code, String customerNumber) {
         this.name = name;
         this.code = code;
         this.customerNumber = customerNumber;

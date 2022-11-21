@@ -26,6 +26,16 @@ public class Transaction {
     public Transaction() {
     }
 
+    public Transaction(long sourceAccountId, long targetAccountId, String targetOwnerName,
+                       double amount, LocalDateTime initiationDate, LocalDateTime completionDate) {
+        this.sourceAccountId = sourceAccountId;
+        this.targetAccountId = targetAccountId;
+        this.targetOwnerName = targetOwnerName;
+        this.amount = amount;
+        this.initiationDate = initiationDate;
+        this.completionDate = completionDate;
+    }
+
     public long getId() {
         return id;
     }

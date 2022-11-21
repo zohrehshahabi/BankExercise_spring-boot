@@ -13,6 +13,7 @@ import java.util.Optional;
 public class AccountService {
     @Autowired
     private AccountRepository accountRepository;
+    @Autowired
     private TransactionRepository transactionRepository;
 
     public Account createAccount( String ownerName) {

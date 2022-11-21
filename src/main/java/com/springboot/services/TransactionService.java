@@ -17,7 +17,7 @@ import java.util.Optional;
 public class TransactionService {
     @Autowired
     private AccountRepository accountRepository;
-
+    @Autowired
     private TransactionRepository transactionRepository;
 
 
@@ -65,5 +65,8 @@ public class TransactionService {
 
     public Iterable<Transaction> getAllTransaction() {
         return transactionRepository.findAll();
+    }
+    public Transaction createTransaction(Transaction transaction){
+       return transactionRepository.save(transaction);
     }
 }

@@ -19,7 +19,6 @@ public class InputValidator {
     }
 
     public static boolean isSearchTransactionValid(TransactionDto transactionDto) {
-        // TODO Add checks for large amounts; consider past history of account holder and location of transfers
 
         if (!isSearchCriteriaValid(transactionDto.getSourceAccount()))
             return false;

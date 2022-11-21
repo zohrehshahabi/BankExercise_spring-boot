@@ -7,9 +7,9 @@ import java.io.Serializable;
 @Embeddable
 public class AccountPersonId implements Serializable {
     private static final long serialVersionUID = 5843742737824179130L;
-   // @Column(name = "ap_acc_id")
+    @Column(name = "ap_acc_id")
     private long accountId;
-  //  @Column(name = "ap_prs_id")
+    @Column(name = "ap_prs_id")
     private long personId;
 
     public AccountPersonId() {
